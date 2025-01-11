@@ -1,0 +1,239 @@
+.show {
+    .profil {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin: 0.2rem 0;
+        }
+    }
+
+    .gambar {
+        display: flex;
+        overflow-x: auto;
+        height: 350px;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-right: 1rem;
+
+        img {
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            object-fit: contain;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    form.jawab {
+        margin-top: 1rem;
+
+        textarea {
+            min-height: 200px;
+        }
+
+        button {
+            margin: 0.5rem 0;
+        }
+    }
+
+    .statistik-pertanyaan {
+        margin: 1rem 0;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        > * {
+            opacity: 0.75;
+        }
+
+        form button {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+
+    .flex .tag {
+        padding: 0.2rem 0.75rem;
+        background-color: slategray;
+        color: white;
+        margin: -0.25rem 0 0.5rem 0;
+        border-radius: 25px;
+        width: fit-content;
+        font-size: 0.9rem;
+    }
+}
+
+.create,
+.edit {
+    input,
+    textarea {
+        margin-bottom: 0.5rem;
+    }
+
+    textarea {
+        min-height: 200px;
+    }
+
+    .media {
+        cursor: pointer;
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+
+        input[type="file"] {
+            display: none;
+        }
+    }
+
+    .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 6fr 6fr;
+    }
+
+    button {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1rem 0;
+    }
+
+    .upload-gambar-container {
+        width: 100%;
+        padding: 1rem;
+        border: 3px dashed rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.05);
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+
+        .item {
+            height: 150px;
+            width: 100%;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item:hover {
+            filter: brightness(0.9);
+        }
+
+        .item img {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .item input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .uploader {
+            grid-column: span 2;
+            padding: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            background-color: steelblue;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .uploader input {
+            cursor: pointer;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .uploader i {
+            font-size: 2.25rem;
+        }
+    }
+
+    .select-gambar-container {
+        padding: 0.5rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+
+        .item {
+            height: 125px;
+            width: 100%;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .item img {
+            object-fit: contain;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .item i {
+            transition: all 0.2s ease;
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            color: firebrick;
+            background-color: lightyellow;
+            border-radius: 50%;
+            padding: 0.25rem;
+            z-index: 4;
+        }
+
+        .item:hover i,
+        .item:has(:checked) i {
+            background-color: firebrick;
+            color: lightyellow;
+        }
+
+        .item input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 5;
+        }
+
+        .item:has(:checked) {
+            outline: 3px solid firebrick;
+        }
+    }
+}

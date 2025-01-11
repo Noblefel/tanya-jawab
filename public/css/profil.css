@@ -1,0 +1,113 @@
+.show {
+    .foto {
+        display: grid;
+        grid-template-columns: 3fr 6fr 3fr;
+
+        img {
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .flex {
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+
+            :first-child {
+                min-width: 80px;
+                text-align: center;
+                padding: 0.2rem 0.5rem;
+                border: 2px solid var(--primer);
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .statistik-profil {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0, 4fr));
+        font-weight: 600;
+
+        > * {
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            :first-child {
+                color: var(--primer);
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    .tabs {
+        margin: 2rem 0;
+        display: flex;
+        justify-content: space-around;
+
+        a {
+            flex: 1;
+            text-align: center;
+            font-weight: 700;
+            padding: 0.5rem 0;
+
+            &.active {
+                color: black;
+                border-bottom: 3px solid var(--sekunder);
+            }
+        }
+    }
+}
+
+.upload-avatar-container {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border: 3px dashed rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+
+    img {
+        width: 90px;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto;
+        margin-bottom: 1rem;
+        display: grid;
+        place-content: center;
+    }
+
+    .upload {
+        padding: 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        background-color: steelblue;
+        color: white;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .upload i {
+        font-size: 2.25rem;
+    }
+
+    input {
+        cursor: pointer;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}

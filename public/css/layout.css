@@ -1,0 +1,297 @@
+.preview {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+
+    &:hover {
+        background-color: azure;
+    }
+
+    p,
+    a {
+        margin: 0.75rem 0;
+    }
+
+    .bottom.flex {
+        align-items: end;
+        justify-content: space-between;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .tags {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+
+        > * {
+            border-radius: 8px;
+            padding: 0.1rem 0.5rem;
+            background-color: color-mix(in srgb, var(--primer), white 80%);
+            color: var(--primer);
+        }
+
+        > :last-of-type {
+            background-color: transparent;
+            color: var(--sekunder);
+        }
+    }
+
+    img.pertanyaan {
+        border-radius: 12px;
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .profil {
+        align-items: start;
+
+        img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: black;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .statistik {
+        gap: 0.8rem;
+        font-size: 0.9rem;
+
+        > *:not(form) {
+            gap: 0.5rem;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        > *:hover {
+            opacity: 1;
+        }
+
+        form.delete button {
+            display: flex;
+            margin: 0;
+            padding: 0.25rem;
+            background-color: transparent;
+        }
+    }
+}
+
+.preview-jawaban {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+
+    .profil {
+        align-items: start;
+        margin: 0.5rem 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: black;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .statistik {
+        font-size: 0.9rem;
+        justify-content: space-between;
+        margin: 0 !important;
+
+        .terbaik {
+            height: fit-content;
+            border-radius: 8px;
+            padding: 0.1rem 1rem;
+            background-color: color-mix(in srgb, limegreen, white 80%);
+            color: limegreen;
+            width: fit-content;
+        }
+
+        .bintang {
+            font-size: 1.2rem;
+        }
+
+        form.delete button {
+            display: flex;
+            margin: 0;
+            padding: 0.25rem;
+            background-color: transparent;
+        }
+    }
+}
+
+.layout {
+    max-width: 1250px;
+    margin: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 27fr 66fr 27fr;
+
+    aside.left {
+        padding: 1rem;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    #side-nav {
+        position: sticky;
+        top: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+
+        a.active {
+            background-color: var(--primer);
+            color: white;
+        }
+
+        a {
+            border: 3px solid black;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            box-shadow: 4px 4px 0 black;
+            gap: 0.5rem;
+        }
+
+        a:last-of-type {
+            background-color: var(--sekunder);
+            margin: 2rem 0 0 0;
+            height: 7.5rem;
+            justify-content: center;
+        }
+    }
+
+    main {
+        height: auto;
+        padding: 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        h1 {
+            text-align: center;
+        }
+    }
+
+    aside.right {
+        padding: 1rem;
+
+        & .fixed {
+            position: fixed;
+            padding-right: 1rem;
+        }
+
+        .mini-profil {
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .mini-profil img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        a.pertanyaan {
+            max-width: 300px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: block;
+
+            &:hover {
+                color: var(--primer);
+            }
+        }
+
+        a.logout {
+            width: fit-content;
+        }
+    }
+}
+
+#mobile-nav {
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    z-index: 5;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    a {
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+
+        &.active {
+            background-color: var(--primer);
+            color: white;
+        }
+
+        &:nth-child(3) {
+            margin-bottom: 4rem;
+            padding: 1rem;
+            font-size: 2rem;
+            background-color: var(--sekunder);
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .layout {
+        grid-template-columns: 4fr 8fr;
+
+        aside.right {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .layout {
+        grid-template-columns: 1fr;
+
+        aside.left {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #mobile-nav {
+        display: none;
+    }
+}

@@ -1,0 +1,422 @@
+body {
+    background-color: rgb(245, 245, 245);
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.layout {
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    transform: translateX(-2rem);
+
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2.5rem;
+
+    nav {
+        height: 100%;
+        width: 250px;
+        position: relative;
+
+        .fixed {
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            height: 700px;
+            max-height: 90vh;
+            position: sticky;
+            top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        a {
+            padding: 0.5rem;
+            border-radius: 8px;
+            background-color: white;
+            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+        }
+
+        a:hover,
+        a.active {
+            background-color: var(--primer);
+            color: white;
+        }
+
+        .space {
+            flex: 1;
+        }
+
+        .bottom a {
+            display: flex;
+            background-color: black;
+            color: white;
+            margin-top: 1rem;
+            border: 2px solid black;
+            font-weight: 600;
+        }
+    }
+
+    main {
+        padding-bottom: 5rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .layout {
+        display: block;
+        transform: none;
+
+        nav {
+            width: 100%;
+        }
+
+        nav .fixed {
+            box-shadow: none;
+            padding-bottom: 0.25rem;
+            width: 100%;
+            flex-direction: row;
+            overflow-x: auto;
+            height: fit-content;
+            position: static;
+
+            a {
+                padding: 0.5rem 1.5rem;
+                border: 2px dashed rgba(0, 0, 0, 0.1);
+            }
+
+            i:not(.bottom i) {
+                display: none;
+            }
+        }
+
+        nav .bottom {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                border-radius: 50%;
+                width: fit-content;
+                height: fit-content;
+                padding: 0.5rem;
+                margin: 0;
+            }
+
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+.dashboard .statistik {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    article {
+        min-width: 200px;
+        flex: 1;
+        padding: 1rem;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    i {
+        font-size: 2.5rem;
+    }
+
+    article b {
+        font-size: 1.3rem;
+        display: block;
+    }
+}
+
+.table-wrapper {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 0.85rem;
+
+    thead {
+        color: white;
+        background-color: slateblue;
+    }
+
+    th {
+        padding: 1rem;
+    }
+
+    th:not(:last-of-type) {
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(249, 249, 249);
+    }
+
+    tr:not(:last-of-type) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+        padding: 1rem;
+    }
+
+    img {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    img.mapel {
+        width: 80px;
+        height: 80px;
+    }
+
+    a {
+        font-weight: 600;
+        color: slateblue;
+    }
+
+    .role {
+        padding: 0.25rem 0.5rem;
+        background-color: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: fit-content;
+        border-radius: 20px;
+    }
+
+    .aksi {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+
+        a,
+        button {
+            justify-content: center;
+            width: fit-content;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            padding: 0.35rem;
+            color: var(--primer);
+            background-color: transparent;
+        }
+
+        a:hover,
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+}
+
+a.button {
+    background-color: var(--sekunder);
+    width: fit-content;
+    color: black;
+    font-size: 0.95rem;
+    margin: 1rem 0;
+}
+
+form:not(.delete) {
+    background-color: white;
+    padding: 1.5rem;
+    max-width: 850px;
+    gap: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .errors {
+        grid-column: span 2;
+    }
+}
+
+.upload-avatar-container {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border: 3px dashed rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+
+    img {
+        width: 90px;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto;
+        margin-bottom: 1rem;
+        display: grid;
+        place-content: center;
+    }
+
+    .upload {
+        padding: 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        background-color: steelblue;
+        color: white;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .upload i {
+        font-size: 2.25rem;
+    }
+
+    input {
+        cursor: pointer;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+.upload-gambar-container {
+    width: 100%;
+    padding: 1rem;
+    border: 3px dashed rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    .item {
+        height: 150px;
+        width: 100%;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .item:hover {
+        filter: brightness(0.9);
+    }
+
+    .item img {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .item input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .uploader {
+        grid-column: span 2;
+        padding: 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        background-color: steelblue;
+        color: white;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .uploader input {
+        cursor: pointer;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .uploader i {
+        font-size: 2.25rem;
+    }
+}
+
+.select-gambar-container {
+    padding: 0.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+
+    .item {
+        height: 125px;
+        width: 100%;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .item img {
+        object-fit: contain;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .item i {
+        transition: all 0.2s ease;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        color: firebrick;
+        background-color: lightyellow;
+        border-radius: 50%;
+        padding: 0.25rem;
+        z-index: 4;
+    }
+
+    .item:hover i,
+    .item:has(:checked) i {
+        background-color: firebrick;
+        color: lightyellow;
+    }
+
+    .item input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 5;
+    }
+
+    .item:has(:checked) {
+        outline: 3px solid firebrick;
+    }
+}
+
+textarea {
+    height: 190px;
+}

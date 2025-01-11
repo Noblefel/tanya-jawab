@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    font-size: 15px;
+    --primer: #00367e;
+    --sekunder: #f8ac32;
+    --tersier: #fde3b7;
+}
+
+body {
+    font-family: Poppins, "Segoe UI", sans-serif;
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0.75rem 0;
+}
+
+a,
+p {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+button,
+.button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primer);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.input-container:has(i) {
+    margin-bottom: 0.4rem;
+
+    .material-symbols-outlined {
+        font-size: 1.5rem;
+        position: absolute;
+        transform: translateY(60%) translateX(30%);
+    }
+
+    input {
+        padding-left: 2.5rem;
+    }
+}
+
+input:not([type="checkbox"]),
+select,
+textarea {
+    margin-top: 0.25rem;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid rgba(128, 128, 128, 0.452);
+    font-family: Poppins;
+    font-size: 0.9rem;
+    inline-size: 100%;
+    box-sizing: border-box;
+    resize: none;
+
+    &:focus {
+        outline: 2px solid var(--primer);
+    }
+}
+
+label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input[type="checkbox"] {
+    inline-size: 1.4rem;
+    block-size: 1.4rem;
+}
+
+.toast {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    min-width: 250px;
+    background-color: limegreen;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    opacity: 0;
+    animation: toast 0.5s ease 0.5s forwards, toast-leave 0.5s ease 4s forwards;
+
+    p,
+    i {
+        color: white;
+    }
+}
+
+@keyframes toast {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    1% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toast-leave {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        z-index: 100;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-2rem);
+        z-index: -1;
+    }
+}
+
+.errors {
+    background-color: crimson;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+
+    ul {
+        padding: 0 2rem 0 2rem;
+    }
+}
